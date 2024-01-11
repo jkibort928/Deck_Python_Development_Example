@@ -16,6 +16,14 @@ To make it executable, you can do either of the following:
 
 Note: The first run of the program will be slow, as it needs to set up the python virtural environment (subsequent launches will be fast).
 
+# Configuration
+
+To add dependencies (pip packages), you first need to ensure the virtural environment is created (`./src/create-venv.sh`)
+Then, use `./src/venv/bin/pip install <dependency>`, then run `./src/venv/bin/pip freeze > ./src/requirements.txt`
+
+Alternatively, if you know the name and version of the packages you need, you can simply edit `./src/requirements.txt` manually.
+To update pip packages, you will need to run `./src/create-venv.sh -o` (the -o flag tells the script to overwrite the current venv if there is one)
+
 # Errors/Troubleshooting
 **Error:** `bash: ./main.py: ./venv/bin/python: bad interpreter: No such file or directory`
 **Explanation/Solution:** This error occurs because you tried to run `main.py` without first creating the python virtual environment. Either use `run-program.sh` to properly ensure it is created, or if you're stubborn, run the `create-venv.sh` script directly.
